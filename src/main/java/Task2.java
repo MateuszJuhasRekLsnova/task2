@@ -1,11 +1,12 @@
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Collectors;
+
 
 public class Task2 {
     public static void main(String[] args) {
         PairsFinder pairsFinder = new PairsFinder();
-
+        String lineFromConsole = getLineFromConsole();
+        int[] arrayOfInts = getArrayOfIntegersFromStringLine(lineFromConsole);
+        pairsFinder.findPairs(arrayOfInts);
     }
 
     public static String getLineFromConsole(){
