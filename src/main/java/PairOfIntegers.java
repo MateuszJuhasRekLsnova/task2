@@ -2,8 +2,8 @@ public class PairOfIntegers {
     private int smallInt;
     private int bigInt;
 
-    public PairOfIntegers(int smalInt, int bigInt) {
-        this.smallInt = smalInt;
+    public PairOfIntegers(int smallInt, int bigInt) {
+        this.smallInt = smallInt;
         this.bigInt = bigInt;
     }
 
