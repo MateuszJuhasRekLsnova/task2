@@ -5,8 +5,16 @@ public class Task2 {
     public static void main(String[] args) {
         PairsFinder pairsFinder = new PairsFinder();
         String lineFromConsole = getLineFromConsole();
+        if (lineFromConsole.isEmpty()){
+            return;
+        }
         int[] arrayOfInts = getArrayOfIntegersFromStringLine(lineFromConsole);
         pairsFinder.findPairs(arrayOfInts);
+        StringBuilder stringBuilder = new StringBuilder();
+        for (PairOfIntegers pairOfInts : pairsFinder.getPairs()){
+            stringBuilder.append(pairOfInts.getSmallInt()).append(" ").append(pairOfInts.getBigInt()).append("\n");
+        }
+        System.out.print(stringBuilder.toString());
     }
 
     public static String getLineFromConsole(){

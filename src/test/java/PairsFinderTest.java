@@ -10,7 +10,7 @@ public class PairsFinderTest {
         PairsFinder pairsFinder = new PairsFinder(13);
         //given
         //pairs:5-8, 5-8, 6-7, 6-7,
-        int[] ints = {1,2,3,5,8,6,7,7,6,8,5};
+        int[] ints = {1,2,3,5,8,6,7,7,6,8,5,13,114,14};
         //when
         pairsFinder.findPairs(ints);
         List<PairOfIntegers> pairs = pairsFinder.getPairs();

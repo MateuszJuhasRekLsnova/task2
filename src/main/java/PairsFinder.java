@@ -30,9 +30,23 @@ public class PairsFinder {
         Iterator<Integer> smallIntsIterator = twoArraysOfInts.smallInts.iterator();
         while (smallIntsIterator.hasNext()){
             Integer smallInt = smallIntsIterator.next();
+            if(smallInt + twoArraysOfInts.bigInts.get(0)<SUM_VALUE){
+                smallIntsIterator.remove();
+                if (twoArraysOfInts.smallInts.size()==0){
+                    return;
+                }
+                continue;
+            }
             Iterator<Integer> bigIntsIterator = twoArraysOfInts.bigInts.iterator();
             while (bigIntsIterator.hasNext()){
                 Integer bigInt = bigIntsIterator.next();
+                if (bigInt + twoArraysOfInts.smallInts.get(0)>SUM_VALUE){
+                    bigIntsIterator.remove();
+                    if(twoArraysOfInts.bigInts.size()==0){
+                        return;
+                    }
+                    continue;
+                }
                 int requiredValue = SUM_VALUE- smallInt;
                 if(bigInt == requiredValue){
                     pairs.add(new PairOfIntegers(smallInt, bigInt));
