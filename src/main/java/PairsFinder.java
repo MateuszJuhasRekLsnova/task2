@@ -29,12 +29,12 @@ public class PairsFinder {
     private void assignPairsFromTwoArrays(TwoArraysOfInts twoArraysOfInts) {
         Iterator<Integer> smallIntsIterator = twoArraysOfInts.smallInts.iterator();
         while (smallIntsIterator.hasNext()){
+            if(twoArraysOfInts.bigInts.size()==0 || twoArraysOfInts.smallInts.size()==0){
+                return;
+            }
             Integer smallInt = smallIntsIterator.next();
             if(smallInt + twoArraysOfInts.bigInts.get(0)<SUM_VALUE){
                 smallIntsIterator.remove();
-                if (twoArraysOfInts.smallInts.size()==0){
-                    return;
-                }
                 continue;
             }
             Iterator<Integer> bigIntsIterator = twoArraysOfInts.bigInts.iterator();
@@ -42,9 +42,6 @@ public class PairsFinder {
                 Integer bigInt = bigIntsIterator.next();
                 if (bigInt + twoArraysOfInts.smallInts.get(0)>SUM_VALUE){
                     bigIntsIterator.remove();
-                    if(twoArraysOfInts.bigInts.size()==0){
-                        return;
-                    }
                     continue;
                 }
                 int requiredValue = SUM_VALUE- smallInt;

@@ -58,4 +58,27 @@ public class PairsFinderTest {
         //then
         Assert.assertEquals(0, pairsFinder.getPairs().size());
     }
+
+    @Test
+    public void findPairsTestMoreSmallNums(){
+        //given
+        //1 2 3 4 5 6 7 8 9 3 6 5 6 5 4 8 2 4 5 4 8 98 54 25 10 11 12 13 0
+        PairsFinder pairsFinder = new PairsFinder(13);
+        int[] ints= {1,2,3,4,5,6,7,8,9,10,11,12,1,1,2,3,4,5,5,4};
+        //when
+        pairsFinder.findPairs(ints);
+        //then
+        Assert.assertEquals(6, pairsFinder.getPairs().size());
+    }
+
+    @Test
+    public void findPairsTestMoreBigNums(){
+        //given
+        PairsFinder pairsFinder = new PairsFinder(13);
+        int[] ints = {1,2,3,4,5,6,12,11,10,9,8,7,10,11,13,9,111,111,111};
+        //when
+        pairsFinder.findPairs(ints);
+        //then
+        Assert.assertEquals(6, pairsFinder.getPairs().size());
+    }
 }
